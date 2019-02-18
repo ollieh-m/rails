@@ -199,4 +199,10 @@ class ZeitwerkIntegrationTest < ActiveSupport::TestCase
       assert_nil autoloader.logger
     end
   end
+
+  test "unhooks" do
+    boot
+
+    assert_equal Module, Module.method(:const_missing).owner
+  end
 end
